@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-9">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts.js"></script>
+    
+
+</head>
+<body>
+    <a class="navbar-brand" href="#">Management Page</a>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+
+<!-- cinema nav bar-->
+<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="cinemaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cinema
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="cinemaDropdown">
+                        <a class="dropdown-item" href="#" onclick="showCinemaData()">Show Cinema Data</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addCinemaModal">Add Cinema</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateCinemaModal">Update Cinema</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteCinemaModal">Delete Cinema</a>
+                    </div>
+
+</li>
+<!-- movie nav bar-->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="movieDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Movie
+    </a>
+    <div class="dropdown-menu" aria-labelledby="movieDropdown">
+        <a class="dropdown-item" href="#" onclick="showMovieData()">Show Movie Data</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addMovieModal">Add Movie</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateMovieModal">Update Movie</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteMovieModal">Delete Movie</a>
+    </div>
+</li>
+<!-- reservation nav bar-->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="reservationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Reservation
+    </a>
+    <div class="dropdown-menu" aria-labelledby="reservationDropdown">
+        <a class="dropdown-item" href="#" onclick="showReservationData()">Show Reservation Data</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addReservationModal">Add Reservation</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateReservationModal">Update Reservation</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteReservationModal">Delete Reservation</a>
+    </div>
+</li>
+<!-- customer bav bar-->
+<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Customer
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="customerDropdown">
+                        <a class="dropdown-item" href="#" onclick="showCustomerData()">Show Customer Data</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addCustomerModal">Add Customer</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateCustomerModal">Update Customer</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteCustomerModal">Delete Customer</a>
+                    </div>
+</li>
+<!-- Screen bav bar-->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="screenDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Screen
+    </a>
+    <div class="dropdown-menu" aria-labelledby="screenDropdown">
+        <a class="dropdown-item" href="#" onclick="showScreenData()">Show Screen Data</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addScreenModal">Add Screen</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateScreenModal">Update Screen</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteScreenModal">Delete Screen</a>
+    </div>
+</li>
+<!-- Genre bav bar-->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Genre
+    </a>
+    <div class="dropdown-menu" aria-labelledby="genreDropdown">
+        <a class="dropdown-item" href="#" onclick="showGenreData()">Show Genre Data</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addGenreModal">Add Genre</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateGenreModal">Update Genre</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteGenreModal">Delete Genre</a>
+    </div>
+</li>
+<!-- operator nav bar-->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="operatorDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Operator
+    </a>
+    <div class="dropdown-menu" aria-labelledby="operatorDropdown">
+        <a class="dropdown-item" href="#" onclick="showOperatorData()">Show Operator Data</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addOperatorModal">Add Operator</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateOperatorModal">Update Operator</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteOperatorModal">Delete Operator</a>
+    </div>
+</li>
+<!-- manager nav bar-->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="managerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Manager
+    </a>
+    <div class="dropdown-menu" aria-labelledby="managerDropdown">
+        <a class="dropdown-item" href="#" onclick="showManagerData()">Show Manager Data</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addManagerModal">Add Manager</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateManagerModal">Update Manager</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteManagerModal">Delete Manager</a>
+    </div>
+</li>
+<!-- technician nav bar-->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="technicianDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Technician
+    </a>
+    <div class="dropdown-menu" aria-labelledby="technicianDropdown">
+        <a class="dropdown-item" href="#" onclick="showTechnicianData()">Show Technician Data</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addTechnicianModal">Add Technician</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateTechnicianModal">Update Technician</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteTechnicianModal">Delete Technician</a>
+    </div>
+</li>
+<!-- vendor nav bar -->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="vendorDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Vendor
+    </a>
+    <div class="dropdown-menu" aria-labelledby="vendorDropdown">
+        <a class="dropdown-item" href="#" onclick="showVendorData()">Show Vendor Data</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addVendorModal">Add Vendor</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateVendorModal">Update Vendor</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteVendorModal">Delete Vendor</a>
+    </div>
+</li>
+<!-- showtime nav bar -->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="showtimeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Showtime
+    </a>
+    <div class="dropdown-menu" aria-labelledby="showtimeDropdown">
+        <a class="dropdown-item" href="#" onclick="showShowtimeData()">Show Showtime Data</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addShowtimeModal">Add Showtime</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateShowtimeModal">Update Showtime</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#deleteShowtimeModal">Delete Showtime</a>
+    </div>
+</li>
+<!-- transaction nav bar -->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="showtimeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Transaction
+    </a>
+    <div class="dropdown-menu" aria-labelledby="showtimeDropdown">
+        <a class="dropdown-item" href="#" onclick="showTransactionData()">Show Transaction Data</a>
+    </div>
+</li>
+<!-- loyalty program nav bar -->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="loyaltyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Loyalty Program
+    </a>
+    <div class="dropdown-menu" aria-labelledby="loyaltyDropdown">
+        <a class="dropdown-item" href="#" onclick="showLoyaltyProgramData()">Show Loyalty Program Data</a>
+    </div>
+</li>
+<!-- Rating nav bar -->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="ratingDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Rating
+    </a>
+    <div class="dropdown-menu" aria-labelledby="ratingDropdown">
+        <a class="dropdown-item" href="#" onclick="showRatingData()">Show Rating Table</a>
+    </div>
+</li>
+<!-- search bar -->
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search...">
+    <button type="button" class="btn btn-primary" onclick="searchTables()">Search</button>
+  </div>
+  <!-- Other dropdown items... -->
+            </ul>
+        </div>
+    </nav>
+    
+      
+    <!-- Modals -->
+<!-- Add Cinema Modal -->
+<div class="modal fade" id="addCinemaModal" tabindex="-1" role="dialog" aria-labelledby="addCinemaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCinemaModalLabel">Add Cinema</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add Cinema Form -->
+                    <form id="addCinemaForm">
+                        <div class="form-group">
+                            <label for="Cinema_id">Cinema ID:</label>
+                            <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="CName">Cinema Name:</label>
+                            <input type="text" class="form-control" id="CName" name="CName">
+                        </div>
+                        <div class="form-group">
+                            <label for="Location">Location:</label>
+                            <input type="text" class="form-control" id="Location" name="Location">
+                        </div>
+                        <div class="form-group">
+                            <label for="Capacity">Capacity:</label>
+                            <input type="number" class="form-control" id="Capacity" name="Capacity">
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="addCinema()">Add Cinema</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- update cinema modal... -->
+<div class="modal fade" id="updateCinemaModal" tabindex="-1" role="dialog" aria-labelledby="updateCinemaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateCinemaModalLabel">update Cinema</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- update Cinema Form -->
+                    <form id="updateCinemaForm">
+                        <div class="form-group">
+                            <label for="Cinema_id">Cinema ID:</label>
+                            <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="CName">Cinema Name:</label>
+                            <input type="text" class="form-control" id="CName" name="CName">
+                        </div>
+                        <div class="form-group">
+                            <label for="Location">Location:</label>
+                            <input type="text" class="form-control" id="Location" name="Location">
+                        </div>
+                        <div class="form-group">
+                            <label for="Capacity">Capacity:</label>
+                            <input type="number" class="form-control" id="Capacity" name="Capacity">
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="updateCinema()">update Cinema</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- delete cinema modal... -->
+<div class="modal fade" id="deleteCinemaModal" tabindex="-1" role="dialog" aria-labelledby="deleteCinemaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteCinemaModalLabel">delete Cinema</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- delete Cinema Form -->
+                    <form id="deleteCinemaForm">
+                        <div class="form-group">
+                            <label for="cinema_id_delete">cinema ID:</label>
+                            <input type="text" class="form-control" id="cinema_id_delete" name="cinema_id">
+                        </div>
+                        <button type="button" class="btn btn-danger" onclick="deleteCinema()">Delete cinema</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- Add Movie Modal -->
+<div class="modal fade" id="addMovieModal" tabindex="-1" role="dialog" aria-labelledby="addMovieModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addMovieModalLabel">Add Movie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add Movie Form -->
+                    <form id="addMovieForm">
+                        <div class="form-group">
+                            <label for="Movie_id">Movie ID:</label>
+                            <input type="number" class="form-control" id="Movie_id" name="Movie_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="Title">Title:</label>
+                            <input type="text" class="form-control" id="Title" name="Title" maxlength="255">
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Description:</label>
+                            <textarea class="form-control" id="Description" name="Description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Release_date">Release Date:</label>
+                            <input type="date" class="form-control" id="Release_date" name="Release_date">
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="addMovie()">Add Movie</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- update movie modal... -->
+<div class="modal fade" id="updateMovieModal" tabindex="-1" role="dialog" aria-labelledby="updateMovieModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateMovieModalLabel">update Movie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- update Movie Form -->
+                    <form id="updateMovieForm">
+                        <div class="form-group">
+                            <label for="Movie_id">Movie ID:</label>
+                            <input type="number" class="form-control" id="Movie_id" name="Movie_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="Title">Title:</label>
+                            <input type="text" class="form-control" id="Title" name="Title" maxlength="255">
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Description:</label>
+                            <textarea class="form-control" id="Description" name="Description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Release_date">Release Date:</label>
+                            <input type="date" class="form-control" id="Release_date" name="Release_date">
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="updateMovie()">update Movie</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- delete movie modal... -->
+<div class="modal fade" id="deleteMovieModal" tabindex="-1" role="dialog" aria-labelledby="deleteMovieModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteMovieModalLabel">delete Movie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- delete Movie Form -->
+                    <form id="deleteMovieForm">
+                        <div class="form-group">
+                            <label for="movie_id_delete">movie ID:</label>
+                            <input type="text" class="form-control" id="movie_id_delete" name="movie_id">
+                        </div>
+                        <button type="button" class="btn btn-danger" onclick="deleteMovie()">Delete movie</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- Add Reservation Modal -->
+<div class="modal fade" id="addReservationModal" tabindex="-1" role="dialog" aria-labelledby="addReservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addReservationModalLabel">Add Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Reservation Form -->
+                <form id="addReservationForm">
+                    <div class="form-group">
+                        <label for="Reservation_id">Reservation ID:</label>
+                        <input type="number" class="form-control" id="Reservation_id" name="Reservation_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="No_of_people">Number of People:</label>
+                        <input type="number" class="form-control" id="No_of_people" name="No_of_people">
+                    </div>
+                    <div class="form-group">
+                        <label for="Customer_id">Customer ID:</label>
+                        <input type="number" class="form-control" id="Customer_id" name="Customer_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="addReservation()">Add Reservation</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- update reservation modal... -->
+<div class="modal fade" id="updateReservationModal" tabindex="-1" role="dialog" aria-labelledby="updateReservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateReservationModalLabel">Update Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- update Reservation Form -->
+                <form id="updateReservationForm">
+                    <div class="form-group">
+                        <label for="Reservation_id">Reservation ID:</label>
+                        <input type="text" class="form-control" id="Reservation_id" name="Reservation_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="No_of_people">Number of People:</label>
+                        <input type="number" class="form-control" id="No_of_people" name="No_of_people">
+                    </div>
+                    <div class="form-group">
+                        <label for="Customer_id">Customer ID:</label>
+                        <input type="number" class="form-control" id="Customer_id" name="Customer_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="updateReservation()">Update Reservation</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- delete reservation modal... -->
+<div class="modal fade" id="deleteReservationModal" tabindex="-1" role="dialog" aria-labelledby="deleteReservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteReservationModalLabel">Delete Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- delete Reservation Form -->
+                <form id="deleteReservationForm">
+                    <div class="form-group">
+                        <label for="reservation_id_delete">Reservation ID:</label>
+                        <input type="text" class="form-control" id="reservation_id_delete" name="reservation_id">
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="deleteReservation()">Delete Reservation</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Customer Modal -->
+<div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCustomerModalLabel">Add Customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add Customer Form -->
+                    <form id="addCustomerForm">
+                        <div class="form-group">
+                            <label for="Customer_id">Customer ID:</label>
+                            <input type="number" class="form-control" id="Customer_id" name="Customer_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="Customer_Name">Customer Name:</label>
+                            <input type="text" class="form-control" id="Customer_Name" name="Customer_Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="Customer_Age">Customer Age:</label>
+                            <input type="number" class="form-control" id="Customer_Age" name="Customer_Age">
+                        </div>
+                        <div class="form-group">
+                            <label for="Customer_Phone">Customer Phone:</label>
+                            <input type="text" class="form-control" id="Customer_Phone" name="Customer_Phone">
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="addCustomer()">Add Customer</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+</div>
+ <!-- update customer modal... -->
+<div class="modal fade" id="updateCustomerModal" tabindex="-1" role="dialog" aria-labelledby="updateCustomerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateCustomerModalLabel">update Customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- update Customer Form -->
+                    <form id="updateCustomerForm">
+                        <div class="form-group">
+                            <label for="Customer_id">Customer ID:</label>
+                            <input type="number" class="form-control" id="Customer_id" name="Customer_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="Customer_Name">Customer Name:</label>
+                            <input type="text" class="form-control" id="Customer_Name" name="Customer_Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="Customer_Age">Customer Age:</label>
+                            <input type="number" class="form-control" id="Customer_Age" name="Customer_Age">
+                        </div>
+                        <div class="form-group">
+                            <label for="Customer_Phone">Customer Phone:</label>
+                            <input type="text" class="form-control" id="Customer_Phone" name="Customer_Phone">
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="updateCustomer()">update Customer</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- delete customer modal... -->
+<div class="modal fade" id="deleteCustomerModal" tabindex="-1" role="dialog" aria-labelledby="deleteCustomerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteCustomerModalLabel">delete Customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- delete Customer Form -->
+                    <form id="deleteCustomerForm">
+                        <div class="form-group">
+                            <label for="customer_id_delete">customer ID:</label>
+                            <input type="text" class="form-control" id="customer_id_delete" name="customer_id">
+                        </div>
+                        <button type="button" class="btn btn-danger" onclick="deleteCustomer()">Delete customer</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- Add Screen Modal -->
+<div class="modal fade" id="addScreenModal" tabindex="-1" role="dialog" aria-labelledby="addScreenModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addScreenModalLabel">Add Screen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Screen Form -->
+                <form id="addScreenForm">
+                    <div class="form-group">
+                        <label for="Screen_id">Screen ID:</label>
+                        <input type="number" class="form-control" id="Screen_id" name="Screen_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Type">Type:</label>
+                        <input type="text" class="form-control" id="Type" name="Type">
+                    </div>
+                    <div class="form-group">
+                        <label for="Seat_no">Seat Number:</label>
+                        <input type="number" class="form-control" id="Seat_no" name="Seat_no">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="addScreen()">Add Screen</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- AddGenreModal -->
+<div class="modal fade" id="addGenreModal" tabindex="-1" role="dialog" aria-labelledby="addGenreModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addGenreModalLabel">Add Genre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Genre Form -->
+                <form id="addGenreForm">
+                    <div class="form-group">
+                        <label for="Genre_id">Genre ID:</label>
+                        <input type="number" class="form-control" id="Genre_id" name="Genre_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Genre_name">Genre Name:</label>
+                        <input type="text" class="form-control" id="Genre_name" name="Genre_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Type">Type:</label>
+                        <input type="text" class="form-control" id="Type" name="Type">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="addGenre()">Add Genre</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- UpdateGenreModal -->
+<div class="modal fade" id="updateGenreModal" tabindex="-1" role="dialog" aria-labelledby="updateGenreModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateGenreModalLabel">Update Genre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- UpdateGenre Form -->
+                <form id="updateGenreForm">
+                    <div class="form-group">
+                        <label for="Genre_id">Genre ID:</label>
+                        <input type="number" class="form-control" id="Genre_id" name="Genre_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Genre_name">Genre Name:</label>
+                        <input type="text" class="form-control" id="Genre_name" name="Genre_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Type">Type:</label>
+                        <input type="text" class="form-control" id="Type" name="Type">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="updateGenre()">Update Genre</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DeleteGenreModal -->
+<div class="modal fade" id="deleteGenreModal" tabindex="-1" role="dialog" aria-labelledby="deleteGenreModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteGenreModalLabel">Delete Genre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- DeleteGenre Form -->
+                
+                <form id="deleteGenreForm">
+                    <div class="form-group">
+                        <label for="genre_id_delete">Genre ID:</label>
+                        <input type="text" class="form-control" id="genre_id_delete" name="genre_id">
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="deleteGenre()">Delete Genre</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Update Screen Modal -->
+<div class="modal fade" id="updateScreenModal" tabindex="-1" role="dialog" aria-labelledby="updateScreenModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateScreenModalLabel">Update Screen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Update Screen Form -->
+                <form id="updateScreenForm">
+                    <div class="form-group">
+                        <label for="Screen_id">Screen ID:</label>
+                        <input type="number" class="form-control" id="Screen_id" name="Screen_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Type">Type:</label>
+                        <input type="text" class="form-control" id="Type" name="Type">
+                    </div>
+                    <div class="form-group">
+                        <label for="Seat_no">Seat Number:</label>
+                        <input type="number" class="form-control" id="Seat_no" name="Seat_no">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="updateScreen()">Update Screen</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Screen Modal -->
+<div class="modal fade" id="deleteScreenModal" tabindex="-1" role="dialog" aria-labelledby="deleteScreenModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteScreenModalLabel">Delete Screen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Delete Screen Form -->
+                <form id="deleteScreenForm">
+                    <div class="form-group">
+                        <label for="screen_id_delete">Screen ID:</label>
+                        <input type="text" class="form-control" id="screen_id_delete" name="screen_id">
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="deleteScreen()">Delete Screen</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Operator Modal -->
+<div class="modal fade" id="addOperatorModal" tabindex="-1" role="dialog" aria-labelledby="addOperatorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addOperatorModalLabel">Add Operator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Operator Form -->
+                <form id="addOperatorForm">
+                    <div class="form-group">
+                        <label for="Op_id">Op ID:</label>
+                        <input type="number" class="form-control" id="Op_id" name="Op_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Op_name">Op Name:</label>
+                        <input type="text" class="form-control" id="Op_name" name="Op_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="state" name="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode:</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode">
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" class="form-control" id="street" name="street">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="addOperator()">Add Operator</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- update Operator modal... -->
+<div class="modal fade" id="updateOperatorModal" tabindex="-1" role="dialog" aria-labelledby="updateOperatorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateOperatorModalLabel">update Operator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- update Operator Form -->
+                <form id="updateOperatorForm">
+                    <div class="form-group">
+                        <label for="Op_id">Op ID:</label>
+                        <input type="number" class="form-control" id="Op_id" name="Op_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Op_name">Op Name:</label>
+                        <input type="text" class="form-control" id="Op_name" name="Op_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="state" name="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode:</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode">
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" class="form-control" id="street" name="street">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="updateOperator()">update Operator</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- delete Operator modal... -->
+<div class="modal fade" id="deleteOperatorModal" tabindex="-1" role="dialog" aria-labelledby="deleteOperatorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteOperatorModalLabel">delete Operator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- delete Operator Form -->
+                
+                <form id="deleteOperatorForm">
+                    <div class="form-group">
+                        <label for="Op_id_delete">Operator ID:</label>
+                        <input type="text" class="form-control" id="Op_id_delete" name="Op_id">
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="deleteOperator()">Delete Operator</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Manager Modal -->
+<div class="modal fade" id="addManagerModal" tabindex="-1" role="dialog" aria-labelledby="addManagerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addManagerModalLabel">Add Manager</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Manager Form -->
+                <form id="addManagerForm">
+                    <div class="form-group">
+                        <label for="Manager_id">Manager ID:</label>
+                        <input type="number" class="form-control" id="Manager_id" name="Manager_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Manager_name">Manager Name:</label>
+                        <input type="text" class="form-control" id="Manager_name" name="Manager_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="state" name="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode:</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode">
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" class="form-control" id="street" name="street">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="addManager()">Add Manager</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Manager Modal -->
+<div class="modal fade" id="updateManagerModal" tabindex="-1" role="dialog" aria-labelledby="updateManagerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateManagerModalLabel">Update Manager</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Update Manager Form -->
+                <form id="updateManagerForm">
+                    <div class="form-group">
+                        <label for="Manager_id">Manager ID:</label>
+                        <input type="number" class="form-control" id="Manager_id" name="Manager_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Manager_name">Manager Name:</label>
+                        <input type="text" class="form-control" id="Manager_name" name="Manager_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="state" name="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode:</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode">
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" class="form-control" id="street" name="street">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="updateManager()">Update Manager</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Manager Modal -->
+<div class="modal fade" id="deleteManagerModal" tabindex="-1" role="dialog" aria-labelledby="deleteManagerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteManagerModalLabel">Delete Manager</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Delete Manager Form -->
+                <form id="deleteManagerForm">
+                    <div class="form-group">
+                        <label for="manager_id_delete">Manager ID:</label>
+                        <input type="text" class="form-control" id="manager_id_delete" name="manager_id">
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="deleteManager()">Delete Manager</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Technician Modal -->
+<div class="modal fade" id="addTechnicianModal" tabindex="-1" role="dialog" aria-labelledby="addTechnicianModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addTechnicianModalLabel">Add Technician</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Technician Form -->
+                <form id="addTechnicianForm">
+                    <div class="form-group">
+                        <label for="Tech_id">Technician ID:</label>
+                        <input type="number" class="form-control" id="Tech_id" name="Tech_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Tech_name">Technician Name:</label>
+                        <input type="text" class="form-control" id="Tech_name" name="Tech_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="state" name="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode:</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode">
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" class="form-control" id="street" name="street">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="addTechnician()">Add Technician</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Technician Modal -->
+<div class="modal fade" id="updateTechnicianModal" tabindex="-1" role="dialog" aria-labelledby="updateTechnicianModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateTechnicianModalLabel">Update Technician</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Update Technician Form -->
+                <form id="updateTechnicianForm">
+                    <div class="form-group">
+                        <label for="Tech_id">Technician ID:</label>
+                        <input type="number" class="form-control" id="Tech_id" name="Tech_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Tech_name">Technician Name:</label>
+                        <input type="text" class="form-control" id="Tech_name" name="Tech_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="state" name="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode:</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode">
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" class="form-control" id="street" name="street">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="updateTechnician()">Update Technician</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Technician Modal -->
+<div class="modal fade" id="deleteTechnicianModal" tabindex="-1" role="dialog" aria-labelledby="deleteTechnicianModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteTechnicianModalLabel">Delete Technician</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Delete Technician Form -->
+                <form id="deleteTechnicianForm">
+                    <div class="form-group">
+                        <label for="technician_id_delete">Technician ID:</label>
+                        <input type="text" class="form-control" id="technician_id_delete" name="technician_id">
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="deleteTechnician()">Delete Technician</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Vendor Modal -->
+<div class="modal fade" id="addVendorModal" tabindex="-1" role="dialog" aria-labelledby="addVendorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addVendorModalLabel">Add Vendor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Vendor Form -->
+                <form id="addVendorForm">
+                    <div class="form-group">
+                        <label for="V_id">Vendor ID:</label>
+                        <input type="number" class="form-control" id="V_id" name="V_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="V_name">Vendor Name:</label>
+                        <input type="text" class="form-control" id="V_name" name="V_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="addVendor()">Add Vendor</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Vendor Modal -->
+<div class="modal fade" id="updateVendorModal" tabindex="-1" role="dialog" aria-labelledby="updateVendorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateVendorModalLabel">Update Vendor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Update Vendor Form -->
+                <form id="updateVendorForm">
+                    <div class="form-group">
+                        <label for="V_id">Vendor ID:</label>
+                        <input type="number" class="form-control" id="V_id" name="V_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="V_name">Vendor Name:</label>
+                        <input type="text" class="form-control" id="V_name" name="V_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Cinema_id">Cinema ID:</label>
+                        <input type="number" class="form-control" id="Cinema_id" name="Cinema_id">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="updateVendor()">Update Vendor</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Vendor Modal -->
+<div class="modal fade" id="deleteVendorModal" tabindex="-1" role="dialog" aria-labelledby="deleteVendorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteVendorModalLabel">Delete Vendor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Delete Vendor Form -->
+                <form id="deleteVendorForm">
+                    <div class="form-group">
+                        <label for="vendor_id_delete">Vendor ID:</label>
+                        <input type="text" class="form-control" id="vendor_id_delete" name="vendor_id">
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="deleteVendor()">Delete Vendor</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Showtime Modal -->
+<div class="modal fade" id="addShowtimeModal" tabindex="-1" role="dialog" aria-labelledby="addShowtimeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addShowtimeModalLabel">Add Showtime</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Showtime Form -->
+                <form id="addShowtimeForm">
+                    <div class="form-group">
+                        <label for="Show_id">Show ID:</label>
+                        <input type="number" class="form-control" id="Show_id" name="Show_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Language">Language:</label>
+                        <input type="text" class="form-control" id="Language" name="Language">
+                    </div>
+                    <div class="form-group">
+                        <label for="Duration">Duration (min):</label>
+                        <input type="number" class="form-control" id="Duration" name="Duration">
+                    </div>
+                    <div class="form-group">
+                        <label for="Start_time">Start Time:</label>
+                        <input type="time" class="form-control" id="Start_time" name="Start_time">
+                    </div>
+                    <div class="form-group">
+                        <label for="End_time">End Time:</label>
+                        <input type="time" class="form-control" id="End_time" name="End_time">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="addShowtime()">Add Showtime</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Showtime Modal -->
+<div class="modal fade" id="updateShowtimeModal" tabindex="-1" role="dialog" aria-labelledby="updateShowtimeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateShowtimeModalLabel">Update Showtime</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Update Showtime Form -->
+                <form id="updateShowtimeForm">
+                    <div class="form-group">
+                        <label for="Show_id">Show ID:</label>
+                        <input type="number" class="form-control" id="Show_id" name="Show_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Language">Language:</label>
+                        <input type="text" class="form-control" id="Language" name="Language">
+                    </div>
+                    <div class="form-group">
+                        <label for="Duration">Duration (min):</label>
+                        <input type="number" class="form-control" id="Duration" name="Duration">
+                    </div>
+                    <div class="form-group">
+                        <label for="Start_time">Start Time:</label>
+                        <input type="time" class="form-control" id="Start_time" name="Start_time">
+                    </div>
+                    <div class="form-group">
+                        <label for="End_time">End Time:</label>
+                        <input type="time" class="form-control" id="End_time" name="End_time">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="updateShowtime()">Update Showtime</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Showtime Modal -->
+<div class="modal fade" id="deleteShowtimeModal" tabindex="-1" role="dialog" aria-labelledby="deleteShowtimeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteShowtimeModalLabel">Delete Showtime</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Delete Showtime Form -->
+                <form id="deleteShowtimeForm">
+                    <div class="form-group">
+                        <label for="showtime_id_delete">Show ID:</label>
+                        <input type="text" class="form-control" id="showtime_id_delete" name="Show_id">
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="deleteShowtime()">Delete Showtime</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Other modals... -->
+    <!-- Cinema Data Table -->
+     <div id="cinemaData"></div>
+     <div id="customerData"></div>
+     <div id="movieData"></div>
+     <div id="reservationData"></div>
+     <div id="screenData"></div>
+     <div id="genreData"></div>
+     <div id="operatorData"></div>
+     <div id="managerData"></div>
+     <div id="technicianData"></div>
+     <div id="vendorData"></div>
+     <div id="showtimeData"></div>
+     <div id="transactionData"></div>
+     <div id="loyaltyProgramData"></div>
+     <div id="ratingData"></div>
+    <!-- Other tables... -->
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
